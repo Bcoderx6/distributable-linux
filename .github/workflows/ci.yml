@@ -46,11 +46,11 @@ jobs:
             --load \
             -f Dockerfile .
 
-      - name: Install additional channels and pull for ${{ matrix.arch }}
-        run: |
-          docker run --privileged --name tmp metacall/distributable_linux:${{ matrix.arch }} sh -c 'guix pull'
-          docker commit tmp metacall/distributable_linux:${{ matrix.arch }}
-          docker rm -f tmp
+     # - name: Install additional channels and pull for ${{ matrix.arch }}
+#        run: |
+        #  docker run --privileged --name tmp metacall/distributable_linux:${{ matrix.arch }} sh -c 'guix pull'
+        #  docker commit tmp metacall/distributable_linux:${{ matrix.arch }}
+        #  docker rm -f tmp
 
       - name: Build dependencies for ${{ matrix.arch }}
         run: |
